@@ -17,9 +17,12 @@ class PascalSentenceDataSet():
         self.url = PascalSentenceDataSet.PASCAL_DATASET_URL
 
     def download_images(self):
+        print("Fetching URL: %s" % self.url)
         dom = PyQuery(self.url)
+
         for img in dom('img').items():
             img_src = img.attr['src']
+            print("Processing image: %s" % img_src)
             category, img_file_name = os.path.split(img_src)
 
             # make category directories

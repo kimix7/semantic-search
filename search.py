@@ -1,4 +1,6 @@
-from keras.engine.saving import load_model
+# from keras.engine.saving import load_model
+from tensorflow.keras.models import load_model
+
 from argparse import ArgumentParser
 
 from utils import load_paired_img_wrd

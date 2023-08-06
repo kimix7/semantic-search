@@ -4,7 +4,7 @@ from sklearn.utils import shuffle
 from argparse import ArgumentParser
 
 from utils import load_paired_img_wrd
-from vector_search import vector_search
+from vector_search import vector_search 
 
 
 def build_parser():

@@ -9,11 +9,13 @@ import numpy as np
 from annoy import AnnoyIndex
 from keras import optimizers
 from keras.layers import Dense, BatchNormalization, Activation, Dropout
-from keras.losses import cosine_proximity
-from keras.preprocessing import image
+# from keras.losses import cosine_similarity
+from tensorflow.keras.losses import cosine_similarity
+# from keras.preprocessing import image
 from keras.models import Model
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg16 import preprocess_input
+import keras.utils as image
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -212,7 +214,7 @@ def setup_custom_model(intermediate_dim=2000, word_embedding_dim=300):
 
     complete_model = Model(inputs=[headless_pretrained_vgg16.input], outputs=image_output)
     sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-    complete_model.compile(optimizer=sgd, loss=cosine_proximity)
+    complete_model.compile(optimizer=sgd, loss=cosine_similarity)
     return complete_model
 
 

@@ -1,8 +1,9 @@
 import os
 import numpy as np
 from keras.applications.imagenet_utils import preprocess_input
-from keras.preprocessing import image
-
+# from keras.preprocessing import image
+# from tensorflow.keras.preprocessing.image import load_img
+import keras.utils as image
 
 def load_paired_img_wrd(folder, word_vectors, use_word_vectors=True):
     '''
